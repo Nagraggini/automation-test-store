@@ -1,13 +1,10 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "../fixtures/BaseTest";
 
 test.describe("Automation Test Store - E2E Vásárlási Folyamat", () => {
     test("Termék keresése, kosárba helyezése és kosár ellenőrzése", async ({
         page,
     }) => {
-        // 1. Nyissuk meg a főoldalt
-        await page.goto("https://automationteststore.com/");
-
-        // Oldalcím ellenőrzése
+        // 1. a weboldal megnyílik a BaseTest-ben lévp beforeeach-el. Oldalcím ellenőrzése
         await expect(page).toHaveTitle(
             /A place to practice your automation skills!/,
         );
@@ -41,7 +38,6 @@ test.describe("Automation Test Store - E2E Vásárlási Folyamat", () => {
             await expect(cartTable).toContainText(productName);
         }
 
-        // Termék törlése a kosárból.
-        await page.locator("//a[@class='btn btn-sm btn-default']").click();
+        // A kosár minden tesztnél külön böngészőkontextusban indul.
     });
 });
