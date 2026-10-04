@@ -23,7 +23,7 @@ Tested web application: [https://automationteststore.com/](https://automationtes
 
 The automated test results and execution reports are generated and published automatically via GitHub Actions:
 
-![Test Report](docs/images/allure-report.png)
+![Test Report](docs/images/allure-report.png)           
 📊 [View Allure Report](https://nagraggini.github.io/automation-test-store/)
 
 ## Prerequisites
