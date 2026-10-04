@@ -23,7 +23,8 @@ test.describe("Automation Test Store - katalógus", () => {
     }) => {
         const searchInput = page.getByPlaceholder("Search Keywords");
         await searchInput.fill("Skinsheen Bronzer Stick");
-        await searchInput.press("Enter");
+        const searchButton = page.locator("//div[@title='Go']");
+        await searchButton.click();
 
         await expect(page).toHaveURL(/.*product_id=50/);
         await expect(

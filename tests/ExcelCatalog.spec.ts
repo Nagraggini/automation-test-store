@@ -25,11 +25,14 @@ test.describe("Excel munkafüzetes katalógusteszt", () => {
             await page
                 .getByPlaceholder("Search Keywords")
                 .fill(searchCase.searchTerm);
+
             await page.getByPlaceholder("Search Keywords").press("Enter");
-            const product = page.getByRole("link", {
-                name: searchCase.expectedProductName,
-                exact: true,
-            });
+            const product = page
+                .getByRole("link", {
+                    name: searchCase.expectedProductName,
+                    exact: true,
+                })
+                .first();
             await expect(product).toBeVisible();
             results.push([
                 searchCase.searchTerm,
