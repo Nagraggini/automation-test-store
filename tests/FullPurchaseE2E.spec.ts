@@ -15,9 +15,11 @@ test.describe("Automation Test Store - E2E Vásárlási Folyamat", () => {
         await searchInput.press("Enter");
 
         // 3. Első termék kiválasztása a találati listából (Playwright role locator)
-        const firstProduct = page.getByRole("link", {
-            name: "Skinsheen Bronzer Stick",
-        });
+        const firstProduct = page
+            .getByRole("link", {
+                name: "Skinsheen Bronzer Stick",
+            })
+            .first();
         await expect(firstProduct).toBeVisible();
 
         const productName = (await firstProduct.textContent())?.trim();

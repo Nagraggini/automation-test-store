@@ -25,6 +25,7 @@ test("a termék adatlapján látható a megnevezés és a kosárba helyezés", a
     await page.getByPlaceholder("Search Keywords").press("Enter");
     await page
         .getByRole("link", { name: "Skinsheen Bronzer Stick", exact: true })
+        .first()
         .click();
 
     await expect(
